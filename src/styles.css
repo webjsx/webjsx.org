@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Page Content Styles */
+@layer components {
+  top-bar a:hover { 
+    @apply underline
+  }
+  
+  .page-content h1 {
+    @apply font-bold text-2xl mt-8 mb-4; /* Changed text-2.5xl to text-2xl */
+  }
+
+  .page-content h2 {
+    @apply text-xl font-bold mt-10 mb-4;
+  }
+
+  .page-content h3 {
+    @apply text-lg font-bold mt-5 mb-4;
+  }
+
+  .page-content p {
+    @apply mb-4 max-w-3xl;
+  }
+
+  .page-content ul {
+    @apply mb-4 list-disc list-inside;
+  }
+
+  .page-content pre {
+    @apply mb-8 pt-4 pb-4 pl-4 bg-black rounded overflow-auto;
+  }
+
+  .page-content a {
+    @apply text-teal-500 no-underline;
+  }
+
+  .page-content a:hover {
+    @apply underline;
+  }
+
+  /* Topbar Styles */
+  .topbar a {
+    @apply text-white;
+  }
+
+  /* TOC Styles */
+  .toc a {
+    @apply text-white;
+  }
+
+  .toc a:hover {
+    @apply text-teal-500;
+  }
+
+  /* Footer Styles */
+  .footer a {
+    @apply text-teal-500 no-underline;
+  }
+
+  .footer a:hover {
+    @apply underline;
+  }
+}
+

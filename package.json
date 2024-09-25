@@ -1,0 +1,35 @@
+{
+  "name": "webjsx-org",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf build && rm -rf dist && mkdir build && mkdir dist",
+    "copy-static": "cp -r src/* dist && cp -r dist/* build && cp -r static/* build",
+    "build-css": "npx tailwindcss build  -c tailwind.config.cjs -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
+    "build-css-prod": "NODE_ENV=production npx tailwindcss -c tailwind.config.cjs build -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
+    "gabble": "npx gabble -s dist/pages -o build -x components",
+    "gabble-debug": "npx gabble --debug -s dist/pages -o build -x components",
+    "build": "npm run clean && npx tsc && npm run copy-static && npm run build-css-prod && npm run gabble",
+    "build-dev": "npm run clean && npx tsc && npm run copy-static && npm run build-css && npm run gabble-debug",
+    "build-html": "npx tsc && cp dist/page.js build && npm run gabble"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/js-beautify": "^1.14.3",
+    "@types/jsdom": "^21.1.7",
+    "@types/marked": "^6.0.0",
+    "@types/node": "^22.5.5",
+    "autoprefixer": "^10.4.20",
+    "gabble": "^2.1.1",
+    "highlight.js": "^11.10.0",
+    "http-server": "^14.1.1",
+    "js-beautify": "^1.15.1",
+    "jsdom": "^25.0.1",
+    "marked": "^14.1.2",
+    "marked-highlight": "^2.1.4",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "webjsx": "^0.0.12"
+  }
+}

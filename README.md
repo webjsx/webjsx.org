@@ -1,2 +1,0 @@
-# webjsx.org
-The website
