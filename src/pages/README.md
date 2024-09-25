@@ -59,7 +59,7 @@
 
 ## Examples
 
-There are a few examples on [StackBlitz](https://stackblitz.com/@jeswin/collections/webjsx). If you're impatient, that's probably the easiest way to get started.
+There are a few examples on [StackBlitz](https://stackblitz.com/@jeswin/collections/webjsx). If you're impatient (like me), that's probably the easiest way to get started.
 - [Todo List](https://stackblitz.com/edit/webjsx-todos)
 - [Rotten Tomatoes Mockup](https://stackblitz.com/edit/webjsx-tomatoes)
 - [Boring Dashboard](https://stackblitz.com/edit/webjsx-dashboard)
@@ -78,7 +78,7 @@ The following is a basic example of how to use webjsx with its two main function
 
 ### Creating Elements with JSX
 
-webjsx fully supports JSX syntax, allowing you to create virtual DOM elements using `createElement` and update the real DOM with `applyDiff`.
+WebJSX fully supports JSX syntax, allowing you to create virtual DOM elements using `createElement` and update the real DOM with `applyDiff`.
 
 ```jsx
 import * as webjsx from "webjsx";
@@ -413,7 +413,7 @@ npm test
 
 ## License
 
-webjsx is open-source software [licensed as MIT](LICENSE).
+WebJSX is open-source software [licensed as MIT](https://raw.githubusercontent.com/webjsx/webjsx/refs/heads/main/LICENSE).
 
 ## Support
 
