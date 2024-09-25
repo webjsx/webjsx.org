@@ -62,7 +62,7 @@
 There are a few examples on [StackBlitz](https://stackblitz.com/@jeswin/collections/webjsx). If you're impatient, that's probably the easiest way to get started.
 - [Todo List](https://stackblitz.com/edit/webjsx-todos)
 - [Rotten Tomatoes Mockup](https://stackblitz.com/edit/webjsx-tomatoes)
-- [Boring Dashboard](https://stackblitz.com/edit/webjsx-tomatoes)
+- [Boring Dashboard](https://stackblitz.com/edit/webjsx-dashboard)
 
 ## Installation
 
