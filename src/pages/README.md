@@ -95,7 +95,7 @@ const vdom = (
 const appContainer = document.getElementById("app");
 
 // Apply the virtual DOM diff to update the real DOM
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ### Defining and Using Web Components with JSX
@@ -143,7 +143,7 @@ class MyElement extends HTMLElement {
         <p>Count: {this.count}</p>
       </div>
     );
-    applyDiff(this, vdom);
+    webjsx.applyDiff(this, vdom);
   }
 }
 
@@ -157,7 +157,7 @@ const vdom = <my-element title="Initial Title" count={10}></my-element>;
 
 // Render the custom Web Component
 const appContainer = document.getElementById("app");
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ### Handling Events in JSX
@@ -165,7 +165,7 @@ applyDiff(appContainer, vdom);
 Attach event listeners directly within your JSX using standard HTML event attributes.
 
 ```jsx
-import { createElement, applyDiff } from "webjsx";
+import * as webjsx from "webjsx";
 
 // Define an event handler
 const handleClick = () => {
@@ -177,7 +177,7 @@ const vdom = <button onclick={handleClick}>Click Me</button>;
 
 // Render the button
 const appContainer = document.getElementById("app");
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ### Using Fragments
@@ -201,7 +201,7 @@ class MyList extends HTMLElement {
         <footer>Total items: 3</footer>
       </>
     );
-    applyDiff(this, vdom);
+    webjsx.applyDiff(this, vdom);
   }
 }
 
@@ -213,7 +213,7 @@ if (!customElements.get("my-list")) {
 // Render the custom Web Component
 const appContainer = document.getElementById("app");
 const vdom = <my-list></my-list>;
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ## API Reference
@@ -250,7 +250,7 @@ Applies the differences between the new virtual node(s) and the existing DOM.
 
 ```jsx
 const vdom = <p class="text">Updated Text</p>;
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ### `Fragment`
@@ -269,7 +269,7 @@ A special type used to group multiple elements without adding extra nodes to the
 ## Example: Creating a Counter Web Component
 
 ```jsx
-import { createElement, applyDiff } from "webjsx";
+import * as webjsx from "webjsx";
 
 // Define the custom Web Component
 class CounterElement extends HTMLElement {
@@ -310,7 +310,7 @@ class CounterElement extends HTMLElement {
         <button onclick={this.increment.bind(this)}>Increment</button>
       </div>
     );
-    applyDiff(this, vdom);
+    webjsx.applyDiff(this, vdom);
   }
 
   increment() {
@@ -327,7 +327,7 @@ if (!customElements.get("counter-element")) {
 const vdom = <counter-element title="My Counter" count={0}></counter-element>;
 
 const appContainer = document.getElementById("app");
-applyDiff(appContainer, vdom);
+webjsx.applyDiff(appContainer, vdom);
 ```
 
 ## TypeScript
