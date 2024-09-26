@@ -39,7 +39,7 @@ body {
   }
 
   .page-content a {
-    @apply text-teal-500 no-underline;
+    @apply text-teal-300 no-underline;
   }
 
   .page-content a:hover {
@@ -57,12 +57,12 @@ body {
   }
 
   .toc a:hover {
-    @apply text-teal-500;
+    @apply text-teal-300;
   }
 
   /* Footer Styles */
   .footer a {
-    @apply text-teal-500 no-underline;
+    @apply text-teal-300 no-underline;
   }
 
   .footer a:hover {
