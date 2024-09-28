@@ -5,15 +5,15 @@
 /* Custom CSS */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Page Content Styles */
 @layer components {
-  top-bar a:hover { 
-    @apply underline
+  top-bar a:hover {
+    @apply underline;
   }
-  
+
   .page-content h1 {
     @apply font-bold text-2xl mt-8 mb-4; /* Changed text-2.5xl to text-2xl */
   }
@@ -36,6 +36,11 @@ body {
 
   .page-content pre {
     @apply mb-8 pt-4 pb-4 pl-4 bg-black rounded overflow-auto;
+  }
+
+  .page-content p > code {
+    padding: 2px 4px 2px 4px;
+    background-color: #2c412e;
   }
 
   .page-content a {
@@ -69,4 +74,3 @@ body {
     @apply underline;
   }
 }
-
