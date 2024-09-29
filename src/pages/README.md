@@ -263,6 +263,19 @@ A special type used to group multiple elements without adding extra nodes to the
 </>
 ```
 
+### `createDomNode(vnode)`
+
+You probably won't need to use this directly. But if you want to convert a virtual DOM node into a real DOM node you can use `createDomNode`.
+
+**Usage:**
+
+```js
+const vnode = <div>Hello, world!</div>;
+const domNode = webjsx.createDomNode(vnode);
+document.body.appendChild(domNode);
+```
+
+
 ## Example: Creating a Counter Web Component
 
 ```jsx
