@@ -11,6 +11,13 @@ export default function basicLayout(contents: string) {
   <link rel="stylesheet" type="text/css" href="/styles.css" />
   <link rel="stylesheet" type="text/css" href="/highlight.css" />
   <link rel="shortcut icon" type="image/png" href="/img/icon.png"/>
+  <script type="importmap">
+    {
+      "imports": {
+        "webjsx": "https://webjsx.org/latest/index.js"
+      }
+    }
+  </script>
   <script src="/page.js" type="module"></script>
   <title>WebJSX: Web Components + JSX</title>
 </head>

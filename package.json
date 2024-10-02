@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf build && rm -rf dist && mkdir build && mkdir dist",
-    "copy-static": "cp -r src/* dist && cp -r dist/* build && cp -r static/* build",
+    "copy-static": "cp -r src/* dist && cp -r dist/* build && cp -r static/* build && cp _headers build",
     "copy-webjsx": "mkdir build/latest && cp -r node_modules/webjsx/dist/* build/latest",
     "build-css-dev": "npx tailwindcss build  -c tailwind.config.cjs -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
     "build-dev": "npm run clean && npx tsc && npm run copy-static && npm run build-css-dev && npm run gabble-debug",

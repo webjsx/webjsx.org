@@ -1,3 +1,5 @@
+import "webjsx";
+
 let hamburgerOpen = false;
 
 window.addEventListener("load", () => {
