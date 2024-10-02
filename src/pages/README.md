@@ -429,7 +429,7 @@ You can load modules directly on the web page these days:
     <script type="importmap">
       {
         "imports": {
-          "webjsx": "./latest/index.js"
+          "webjsx": "https://webjsx.org/latest/dist/index.js"
         }
       }
     </script>

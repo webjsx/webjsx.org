@@ -14,7 +14,7 @@ export default function basicLayout(contents: string) {
   <script type="importmap">
     {
       "imports": {
-        "webjsx": "https://webjsx.org/latest/index.js"
+        "webjsx": "https://webjsx.org/latest/dist/index.js"
       }
     }
   </script>
