@@ -5,13 +5,14 @@
   "scripts": {
     "clean": "rm -rf build && rm -rf dist && mkdir build && mkdir dist",
     "copy-static": "cp -r src/* dist && cp -r dist/* build && cp -r static/* build",
-    "build-css": "npx tailwindcss build  -c tailwind.config.cjs -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
-    "build-css-prod": "NODE_ENV=production npx tailwindcss -c tailwind.config.cjs build -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
+    "copy-webjsx": "mkdir build/latest && cp -r node_modules/webjsx/dist/* build/latest",
+    "build-css-dev": "npx tailwindcss build  -c tailwind.config.cjs -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
+    "build-dev": "npm run clean && npx tsc && npm run copy-static && npm run build-css-dev && npm run gabble-debug",
+    "build-css": "NODE_ENV=production npx tailwindcss -c tailwind.config.cjs build -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
+    "build": "npm run clean && npx tsc && npm run copy-static && npm run copy-webjsx && npm run build-css && npm run gabble",
+    "build-html": "npx tsc && cp dist/page.js build && npm run gabble",
     "gabble": "npx gabble -s dist/pages -o build -x components",
-    "gabble-debug": "npx gabble --debug -s dist/pages -o build -x components",
-    "build": "npm run clean && npx tsc && npm run copy-static && npm run build-css-prod && npm run gabble",
-    "build-dev": "npm run clean && npx tsc && npm run copy-static && npm run build-css && npm run gabble-debug",
-    "build-html": "npx tsc && cp dist/page.js build && npm run gabble"
+    "gabble-debug": "npx gabble --debug -s dist/pages -o build -x components"
   },
   "type": "module",
   "dependencies": {
@@ -30,6 +31,6 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
-    "webjsx": "^0.0.12"
+    "webjsx": "^0.0.20"
   }
 }
