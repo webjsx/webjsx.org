@@ -263,15 +263,15 @@ A special type used to group multiple elements without adding extra nodes to the
 </>
 ```
 
-### `createDomNode(vnode)`
+### `createNode(vnode)`
 
-You probably won't need to use this directly. But if you want to convert a virtual DOM node into a real DOM node you can use `createDomNode`.
+You probably won't need to use this directly. But if you want to convert a virtual DOM node into a real DOM node you can use `createNode`.
 
 **Usage:**
 
 ```js
 const vnode = <div>Hello, world!</div>;
-const domNode = webjsx.createDomNode(vnode);
+const domNode = webjsx.createNode(vnode);
 document.body.appendChild(domNode);
 ```
 
@@ -425,11 +425,11 @@ You can load modules directly on the web page these days:
   <head>
     <title>WebJsx Test</title>
 
-  <!-- wherever you have copied webjsx files -->
+  <!-- node_modules or wherever you downloaded webjsx -->
     <script type="importmap">
       {
         "imports": {
-          "webjsx": "https://webjsx.org/latest/dist/index.js"
+          "webjsx": "../node_modules/webjsx/dist/index.js"
         }
       }
     </script>
