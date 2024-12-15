@@ -6,6 +6,7 @@ const dom = new jsdom.JSDOM(
 const document = dom.window.document;
 globalThis.document = document;
 (globalThis as any).window = dom.window;
+globalThis.Element = dom.window.Element;
 globalThis.HTMLElement = dom.window.HTMLElement;
 globalThis.customElements = dom.window.customElements;
 

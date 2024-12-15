@@ -1,6 +1,6 @@
 import "webjsx";
 
-declare module "webjsx" {
+declare global {
   namespace JSX {
     interface IntrinsicElements {
       "top-bar": {};
