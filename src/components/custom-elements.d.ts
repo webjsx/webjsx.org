@@ -8,6 +8,7 @@ declare global {
       "markdown-renderer": {
         contentValue?: string;
       };
+      "blooming-flower": {};
     }
   }
 }

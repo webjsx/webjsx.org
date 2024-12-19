@@ -14,7 +14,9 @@ export default function basicLayout(contents: string) {
   <script type="importmap">
     {
       "imports": {
-        "webjsx": "https://webjsx.org/latest/dist/index.js"
+        "webjsx": "https://webjsx.org/latest/webjsx/dist/index.js",
+        "webjsx/jsx-runtime": "https://webjsx.org/latest/webjsx/dist/jsx-runtime.js",
+        "bloom-router": "https://webjsx.org/latest/bloom-router/dist/index.js"
       }
     }
   </script>

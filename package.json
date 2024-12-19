@@ -5,11 +5,12 @@
   "scripts": {
     "clean": "rm -rf build && rm -rf dist && mkdir build && mkdir dist",
     "copy-static": "cp -r src/* dist && cp -r dist/* build && cp -r static/* build && cp _headers build",
-    "copy-webjsx": "mkdir build/latest && cp -r node_modules/webjsx/* build/latest",
+    "copy-webjsx": "mkdir -p build/latest/webjsx && cp -r node_modules/webjsx/* build/latest/webjsx",
+    "copy-bloom": "mkdir build/latest/bloom-router && cp -r node_modules/bloom-router/* build/latest/bloom-router",
     "build-css-dev": "npx tailwindcss build  -c tailwind.config.cjs -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
     "build-dev": "npm run clean && npx tsc && npm run copy-static && npm run build-css-dev && npm run gabble-debug",
     "build-css": "NODE_ENV=production npx tailwindcss -c tailwind.config.cjs build -i ./src/styles.css -o ./dist/styles.css && cp dist/styles.css build",
-    "build": "npm run clean && npx tsc && npm run copy-static && npm run copy-webjsx && npm run build-css && npm run gabble",
+    "build": "npm run clean && npx tsc && npm run copy-static && npm run copy-webjsx && npm run copy-bloom && npm run build-css && npm run gabble",
     "build-html": "npx tsc && cp dist/page.js build && npm run gabble",
     "gabble": "npx gabble -s dist/pages -o build -x components",
     "gabble-debug": "npx gabble --debug -s dist/pages -o build -x components"
@@ -21,6 +22,7 @@
     "@types/marked": "^6.0.0",
     "@types/node": "^22.10.2",
     "autoprefixer": "^10.4.20",
+    "bloom-router": "^0.0.14",
     "gabble": "^2.1.1",
     "highlight.js": "^11.11.0",
     "http-server": "^14.1.1",
@@ -29,8 +31,8 @@
     "marked": "^15.0.4",
     "marked-highlight": "^2.2.1",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
-    "webjsx": "^0.0.39"
+    "webjsx": "^0.0.42"
   }
 }
