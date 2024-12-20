@@ -57,22 +57,88 @@ As the counter changes, the component yields new markup.
 
 ### The little things that matter
 
-Do you remember that time when you tried to paste some html into a React component and it would give you errors? Oh, it's className not class. The style property is an object, not a string. Attributes aren't attributes. In fact, there is no such thing.
+Ever tried copying HTML into a React component? The frustration of seeing errors because 'class' became 'className', or because style attributes need to be JavaScript objects instead of simple strings? These small departures from web standards create friction in our daily work.
 
-<floating-codebox code="&lt;Sidebar className={}..."></floating-codebox>
-<floating-codebox code="&lt;TodoList style={{ top: 20 }}"></floating-codebox>
+By staying close to web standards, Bloom lets you work with HTML as it was meant to be. When you write class="header", it stays exactly that. Style attributes remain straightforward strings. This means you can copy HTML from any source - documentation, design tools, even existing websites - and paste it directly into your components. There's less to learn, less to transform, and less to maintain.
 
+### Let's build the Hacker News Home Page
 
-Bloom and other Web Component frameworks try to stay close to the standards. You can copy html and paste it into a component. It would mostly just work.
+<story-list></story-list>
 
-Bloom is trying to be the most minimal pattern for building real-world Web Components. And in that sense it's an ongoing experiment looking for ideas and feedback.
+And here's the source code:
 
-The little details matter that bring the standards closer to your code. **class** not className. **style** is a string, not an object with weird capitalization.
+```ts
+component(
+  "story-list",
+  async function* (component: HTMLElement & BloomComponent) {
+    let stories: Story[] | null = null;
 
-why does this matter? It allows you to copy and paste HTML directly.
+    const fetchTopStories = async (limit = 30): Promise<Story[]> => {
+      const topIds = await fetch(
+        "https://hacker-news.firebaseio.com/v0/topstories.json"
+      ).then((res) => res.json());
+      const sliced = topIds.slice(0, limit);
+      const stories = await Promise.all(
+        sliced.map((id: number) =>
+          fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
+            (r) => r.json()
+          )
+        )
+      );
+      return stories as Story[];
+    };
 
-You are setting properties on the component component.x = 10, not props magical dust
+    stories = await fetchTopStories();
+
+    while (true) {
+      if (!stories) {
+        yield <div>Loading top stories...</div>;
+      } else {
+        yield (
+          <div>
+            <hn-header />
+            <div class="story-list">
+              {stories.slice(0, 10).map((story: Story, index: number) => (
+                <div class="story-list-item">
+                  <span class="rank">{index + 1}.</span>
+                  <div style="display: inline-block">
+                    <div class="vote-arrow" title="upvote"></div>
+                  </div>
+                  <span>
+                    <a class="title-link" href="#" onclick={() => {}}>
+                      {story.title}
+                    </a>
+                    {story.url && (
+                      <span class="meta">
+                        {" "}
+                        <a
+                          href={story.url}
+                          class="host"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          ({new URL(story.url).hostname.replace("www.", "")})
+                        </a>
+                      </span>
+                    )}
+                  </span>
+                  <div class="meta">
+                    {story.score} points by <user-link username={story.by} />{" "}
+                    <a href="#" onclick={() => {}}>
+                      {story.descendants || 0} comments
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      }
+    }
+  }
+);
+```
 
 ### Try Bloom
 
-Bloom [on GitHub](https://github.com/webjsx/bloom-router)
+Bloom is Open Source and shared [on GitHub](https://github.com/webjsx/bloom-router). You can also fiddle with examples [on StackBlitz](https://stackblitz.com/edit/bloom-hn).

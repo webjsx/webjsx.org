@@ -25,6 +25,7 @@ export default function bloomLayout(contents: string) {
   </script>
   <script src="/pages/bloom/components/blooming-flower.js" type="module"></script>
   <script src="/pages/bloom/components/floating-codebox.js" type="module"></script>
+  <script src="/pages/bloom/components/hn.js" type="module"></script>
   <title>WebJSX: Web Components + JSX</title>
 </head>
 
