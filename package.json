@@ -29,8 +29,8 @@
     "marked": "^15.0.4",
     "marked-highlight": "^2.2.1",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
-    "webjsx": "^0.0.39"
+    "webjsx": "^0.0.42"
   }
 }
