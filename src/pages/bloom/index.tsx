@@ -19,10 +19,10 @@ export default function html() {
     <div>
       <div>
         <div style="display: flex; align-items: center;">          
-          <h1>Introducing Bloom.</h1><experiment-icon />
+          <h1>Bloom: Build Web Components with Asynchronous Generators</h1><experiment-icon />
         </div>
         <p>
-          Bloom is an experimental approach to managing front-end state using
+          Bloom is an experiment for managing front-end state using
           Web Components and Asynchronous Generators.
         </p>
         <markdown-renderer contentValue={markdownContent}></markdown-renderer>
