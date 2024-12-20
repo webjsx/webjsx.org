@@ -14,7 +14,7 @@ Modern frameworks like React, Vue, etc simplify the way we build web application
     <div class="col flexible">
         <div class="neuton-light">
             <p class="slogan">You can touch them in Dev Tools.<br /> With a mouse, but still.</p>
-            <p><a href="#">View Source</a></p>
+            <p><a href="https://github.com/webjsx/webjsx.org/blob/main/src/pages/bloom/components/blooming-flower.tsx">View Source</a></p>
         </div>
     </div>
 </div>
