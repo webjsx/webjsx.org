@@ -22,7 +22,7 @@
     "@types/marked": "^6.0.0",
     "@types/node": "^22.10.2",
     "autoprefixer": "^10.4.20",
-    "bloom-router": "^0.0.14",
+    "bloom-router": "^0.0.16",
     "gabble": "^2.1.1",
     "highlight.js": "^11.11.0",
     "http-server": "^14.1.1",

@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #111827;
+  --text-color: #ffffff;
+  --secondary-bg: #2d2d2d;
+  --border-color: #404040;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  padding: 2em;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.8;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #5eead4;
+}
+
+pre {
+  code {
+    padding: 1.5em 2em 2em 2em !important;
+    font-size: 1.1em;
+    background: linear-gradient(45deg, #0f332c, #422b51) !important;
+    border-radius: 8px;
+    line-height: 1.5;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Neuton";
+  font-weight: 300;
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2.2em;
+}
+
+.slogan {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+hr {
+  border: none; /* Remove default border */
+  height: 3px; /* Adjust height */
+  margin: 16px 0; /* 1em margin top and bottom */
+  background: linear-gradient(
+    to right,
+    #060a1300,
+    #0fa4e775
+  ); /* Vibrant gradient for contrast */
+  border-radius: 2px; /* Smooth rounded edges */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Slight glow effect for extra pop */
+}
+
+.neuton-light {
+  font-family: "Neuton", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.neuton-regular {
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.row-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
+  @media (max-width: 959px) {
+    flex-direction: column;
+
+    .fixed {
+      width: 100%;
+    }
+
+    .col.flexible {
+      justify-content: flex-start; /* align left instead of center */
+    }
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fixed {
+    width: 320px;
+  }
+
+  .flexible {
+    flex: 1;
+  }
+}
+
+floating-codebox {
+  float: left;
+  pre {
+    code {
+      margin: 2em;
+      background: linear-gradient(45deg, #042720, #010f0d) !important;
+    }
+  }
+}
