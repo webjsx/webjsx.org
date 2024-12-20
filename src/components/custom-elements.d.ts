@@ -8,7 +8,7 @@ declare global {
       "markdown-renderer": {
         contentValue?: string;
       };
-      "blooming-flower": {};
+      "blooming-flower": { color?: string };
     }
   }
 }
