@@ -63,7 +63,11 @@ By staying close to web standards, Bloom lets you work with HTML as it was meant
 
 ### Let's build the Hacker News Home Page
 
-<story-list></story-list>
+<story-list>
+  <div style="padding: 2em; background: gray; border-radius: 8px">
+    Loading top stories...
+  </div>
+</story-list>
 
 And here's the source code:
 
@@ -71,28 +75,32 @@ And here's the source code:
 component(
   "story-list",
   async function* (component: HTMLElement & BloomComponent) {
-    let stories: Story[] | null = null;
+    let stories = null as Story[] | null;
 
-    const fetchTopStories = async (limit = 30): Promise<Story[]> => {
+    const fetchTopStories = async (limit = 30) => {
       const topIds = await fetch(
         "https://hacker-news.firebaseio.com/v0/topstories.json"
       ).then((res) => res.json());
       const sliced = topIds.slice(0, limit);
-      const stories = await Promise.all(
+      stories = await Promise.all(
         sliced.map((id: number) =>
           fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
             (r) => r.json()
           )
         )
       );
-      return stories as Story[];
+      component.render();
     };
 
-    stories = await fetchTopStories();
+    fetchTopStories();
 
     while (true) {
-      if (!stories) {
-        yield <div>Loading top stories...</div>;
+      if (stories === null) {
+        yield (
+          <div style="padding: 2em; background: gray; border-radius: 8px">
+            Loading top stories...
+          </div>
+        );
       } else {
         yield (
           <div>
